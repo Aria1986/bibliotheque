@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Book {%endblock%}
+{% block body %}
+
+<a href="{{path('app_books')}}">Revenir à la liste </a>
+
+<h1>{{book.title}}</h1>
+{%for category in book.categories()%}       
+    <p>{{category.CategoryName}}<p>
+    {% endfor %}
+<p>{{book.author().AuthorName}}<p>
+{% endblock %}

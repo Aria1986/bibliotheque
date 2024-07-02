@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}List{% endblock %}
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id Book</th>   
+            <th scope="col">Title</th>   
+            <th scope="col">Category</th>  
+            <th scope="col">Author</th>  
+            
+
+        </tr>
+    </thead>
+    {% for book in books %}
+    <tr>
+        <th scope="row"><a href="{{path('app_details', {id: book.id})}}">{{ book.id }}</a></th>
+        <td><a href="{{path('app_details', {id: book.id})}}">{{ book.title }}</a></td>
+        <td>{%for category in book.categories()%}
+            <span class="btn btn-success">{{category.CategoryName}} </span>
+        {% endfor %}</td>
+        <td>{{ book.author().AuthorName }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+
