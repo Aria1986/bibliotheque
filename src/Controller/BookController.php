@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class BookController extends AbstractController
 {
-    #[Route("/home", name: "app_home")]
+    #[Route("/", name: "app_home")]
     public function index(): Response {
         return $this->render('library/index.html.twig', [
             'message' => 'Bienvenue à la bibliothèque',
